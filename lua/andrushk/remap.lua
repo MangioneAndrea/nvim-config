@@ -27,3 +27,4 @@ vim.keymap.set("v", "<leader>p", "\"+p")
 vim.keymap.set("v", "<leader>s", "y:<C-U>%s/<C-r><C-r>\"/<C-r><C-r>\"/gI<Left><Left><Left>")
 
 
+vim.keymap.set("n", "<leader>f", ":Prettier<CR>")
