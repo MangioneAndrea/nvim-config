@@ -5,7 +5,9 @@ lsp.ensure_installed({
 	'eslint',
 	'sumneko_lua',
 	'rust_analyzer',
-	'tailwindcss'
+	'tailwindcss',
+	'jdtls',
+	'clangd'
 })
 
 
@@ -19,7 +21,6 @@ lsp.configure('sumneko_lua', {
         }
     }
 })
-
 
 local cmp = require('cmp')
 local cmp_select = {bahavior = cmp.SelectBehavior.Select}
@@ -44,6 +45,8 @@ end)
 
 lsp.setup()
 
+
+-- show diagnostic inline
 vim.diagnostic.config({
     virtual_text = true,
 })
