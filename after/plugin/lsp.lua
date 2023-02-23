@@ -3,7 +3,7 @@ lsp.preset("recommended")
 lsp.ensure_installed({
 	'tsserver',
 	'eslint',
-	'sumneko_lua',
+	'lua_ls',
 	'rust_analyzer',
 	'tailwindcss',
 	'jdtls',
@@ -32,6 +32,8 @@ local cmp_mappings = lsp.defaults.cmp_mappings({
 lsp.setup_nvim_cmp({
 	mapping = cmp_mappings
 })
+
+
 
 lsp.set_preferences({
 	sign_icons = {}

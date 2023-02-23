@@ -28,3 +28,11 @@ vim.keymap.set("v", "<leader>s", "y:<C-U>%s/<C-r><C-r>\"/<C-r><C-r>\"/gI<Left><L
 
 
 vim.keymap.set("n", "<leader>f", ":Prettier<CR>")
+
+
+vim.keymap.set('n', '<leader>h', "<C-wk>")
+
+
+-- debugger
+vim.keymap.set("n", "<leader>dbg", ":lua require'dap'.continue()<CR>")
+vim.keymap.set("n", "<leader>b", ":lua require'dap'.toggle_breakpoint()<CR>")
