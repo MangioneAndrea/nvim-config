@@ -5,9 +5,9 @@ local dap = require('dap')
 dap.adapters.node2 = {
 	type = 'executable',
 	command = 'node',
-	args = {vim.fn.stdpath('data') .. '/mason/packages/node-debug2-adapter/out/src/nodeDebug.js'},
+	args = { vim.fn.stdpath('data') .. '/mason/packages/node-debug2-adapter/out/src/nodeDebug.js' },
 }
--- Js configs (local, docker...) 
+-- Js configs (local, docker...)
 dap.configurations.javascript = {
 	{
 		name = 'Launch',
@@ -24,18 +24,18 @@ dap.configurations.javascript = {
 		name = 'Attach to process',
 		type = 'node2',
 		request = 'attach',
-		processId = require'dap.utils'.pick_process,
+		processId = require 'dap.utils'.pick_process,
 	},
 	{
-		type= 'node2',
-		request= 'attach',
-		name= 'Attach to Docker',
-		address= 'localhost',
-		port= 5858,
-		restart= true,
-		sourceMaps= false,
-		localRoot= '${workspaceFolder}/backend',
-		remoteRoot= '/usr/jacando/backend',
+		type = 'node2',
+		request = 'attach',
+		name = 'Attach to Docker',
+		address = 'localhost',
+		port = 5858,
+		restart = true,
+		sourceMaps = false,
+		localRoot = '${workspaceFolder}/backend',
+		remoteRoot = '/usr/jacando/backend',
 		cwd = vim.fn.getcwd(),
 		--sourceMapPathOverrides = {
 		--	{['*'] = '${cwd}/*'}
@@ -46,5 +46,3 @@ dap.configurations.javascript = {
 		}
 	},
 }
-
-

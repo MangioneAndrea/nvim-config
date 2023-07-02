@@ -23,11 +23,13 @@ vim.keymap.set("v", "<leader>y", "\"+y")
 vim.keymap.set("n", "<leader>p", "\"+p")
 vim.keymap.set("v", "<leader>p", "\"+p")
 
--- replace all occourences of the selected buffer in visual mode 
+-- replace all occourences of the selected buffer in visual mode
 vim.keymap.set("v", "<leader>s", "y:<C-U>%s/<C-r><C-r>\"/<C-r><C-r>\"/gI<Left><Left><Left>")
 
 
-vim.keymap.set("n", "<leader>f", ":Prettier<CR>")
+vim.keymap.set("n", "<leader>f", function()
+	FormatFile()
+end)
 
 
 vim.keymap.set('n', '<leader>h', "<C-wk>")
