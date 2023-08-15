@@ -1,4 +1,5 @@
 local lsp = require("lsp-zero")
+local lspconfig = require("lspconfig")
 lsp.preset("recommended")
 lsp.ensure_installed({
 	'tsserver',
@@ -8,6 +9,7 @@ lsp.ensure_installed({
 	'tailwindcss',
 	'jdtls',
 	'clangd',
+	'arduino_language_server'
 })
 
 
@@ -38,6 +40,19 @@ lsp.configure('lua_ls', {
     },
   },
 })
+
+-- requires arduno-cli core install arduino:avr
+lspconfig.arduino_language_server.setup( {
+    cmd = {
+        "arduino-language-server",
+        "-cli-config",
+	"C:/Users/andre/AppData/Local/Arduino15/arduino-cli.yaml",
+	"-fqbn",
+	"arduino:avr:uno",
+    }
+})
+
+
 
 local cmp = require('cmp')
 local cmp_select = {bahavior = cmp.SelectBehavior.Select}
