@@ -36,4 +36,6 @@ After opening nvim, with normal mode type `:PackerSync`
 
 [ripgrep](https://github.com/mrLuisFer/neovim-dotfiles/blob/main/README.md#--ripgrep) - Which allows `ctrl-f` to fuzzy search inside the repo 
 
-#### Enjoy your new IDE!
+[arduino-cli](https://github.com/arduino/arduino-cli) - for Arduino development (must also run `arduno-cli core install arduino:avr`)
+
+#### Enjoy your new Editor!
