@@ -1,9 +1,9 @@
 function FormatFile()
 	if
-	    vim.bo.filetype == "js"
-	    or vim.bo.filetype == "ts"
-	    or vim.bo.filetype == "jsx"
-	    or vim.bo.filetype == "tsx"
+	    vim.bo.filetype == "javascript"
+	    or vim.bo.filetype == "typescript"
+	    or vim.bo.filetype == "typescriptreact"
+	    or vim.bo.filetype == "javascriptreact"
 	    or vim.bo.filetype == "svelte"
 	    or vim.bo.filetype == "json"
 	then

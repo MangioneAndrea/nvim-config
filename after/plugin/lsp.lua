@@ -52,12 +52,13 @@ lspconfig.arduino_language_server.setup( {
     }
 })
 
+lspconfig.gdscript.setup{};
+
 
 
 local cmp = require('cmp')
 local cmp_select = {bahavior = cmp.SelectBehavior.Select}
 local cmp_mappings = lsp.defaults.cmp_mappings({
-	["<C-Space>"] = cmp.mapping.complete(),
 	["<Tab>"] = cmp.mapping.confirm({select=true})
 })
 

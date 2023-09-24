@@ -1,6 +1,6 @@
 vim.g.mapleader = " "
 -- Open file tree
-vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
+vim.keymap.set("n", "<leader>-", vim.cmd.Ex)
 
 -- Add ctrl + s to save and go to normal mode
 vim.keymap.set("n", "<C-s>", ":w<CR>")
@@ -26,14 +26,11 @@ vim.keymap.set("v", "<leader>p", "\"+p")
 -- replace all occourences of the selected buffer in visual mode
 vim.keymap.set("v", "<leader>s", "y:<C-U>%s/<C-r><C-r>\"/<C-r><C-r>\"/gI<Left><Left><Left>")
 
+-- format
+vim.keymap.set("n", "<leader>f", FormatFile)
 
-vim.keymap.set("n", "<leader>f", function()
-	FormatFile()
-end)
-
-
+-- show help (signature)
 vim.keymap.set('n', '<leader>h', "<C-wk>")
-
 
 -- debugger
 vim.keymap.set("n", "<leader>dbg", ":lua require'dap'.continue()<CR>")
