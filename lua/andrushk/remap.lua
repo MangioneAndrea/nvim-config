@@ -25,9 +25,25 @@ vim.keymap.set("v", "<leader>p", "\"+p")
 
 -- replace all occourences of the selected buffer in visual mode
 vim.keymap.set("v", "<leader>s", "y:<C-U>%s/<C-r><C-r>\"/<C-r><C-r>\"/gI<Left><Left><Left>")
+-- replace all occourences in the open repository
+vim.keymap.set("v", "<leader>s", "y:<C-U>%s/<C-r><C-r>\"/<C-r><C-r>\"/gI<Left><Left><Left>")
 
 -- format
-vim.keymap.set("n", "<leader>f", FormatFile)
+vim.keymap.set("n", "<leader>f", function()
+	if
+	    vim.bo.filetype == "javascript"
+	    or vim.bo.filetype == "typescript"
+	    or vim.bo.filetype == "typescriptreact"
+	    or vim.bo.filetype == "javascriptreact"
+	    or vim.bo.filetype == "svelte"
+	    or vim.bo.filetype == "json"
+	then
+		vim.cmd(":Prettier<CR>")
+	else
+		vim.lsp.buf.format({ timeout_ms = 200 })
+	end
+end
+ )
 
 -- show help (signature)
 vim.keymap.set('n', '<leader>h', "<C-wk>")

@@ -1,4 +1,3 @@
-require("andrushk.format")
+require("andrushk.settings")
 require("andrushk.remap")
-require("andrushk.packer")
-require("andrushk.set")
+require("lazy").setup("andrushk.lazy")
