@@ -8,29 +8,26 @@ This is my nvim config, feel free to copy and make your own version of it.
 
 #### Linux/MacOS
 
-##### Install packer
-
-`git clone --depth 1 https://github.com/wbthomason/packer.nvim  ~/.local/share/nvim/site/pack/packer/start/packer.Nvim`
-
 ##### Setup this repo
 
 `git clone https://github.com/MangioneAndrea/nvim-config ~/.config/nvim`
 
 #### Windows
 
-##### Install packer
-
-`git clone https://github.com/wbthomason/packer.nvim "$env:LOCALAPPDATA\nvim-data\site\pack\packer\start\packer.nvim"`
-
 ##### Setup this repo
 
 `git clone https://github.com/MangioneAndrea/nvim-config "$env:LOCALAPPDATA\nvim"`
 
+##### Not working?
+
+if you are coming from another config, you probably have to reset everything first, so run 
+```
+cd $env:LOCALAPPDATA/nvim-data
+explorer .
+```
+and delete everything. Notice that `rm -r` works only with admin ps`
+
 ### Init configurations
-
-#### Sync packages
-
-After opening nvim, with normal mode type `:PackerSync`
 
 #### Add additional features, if not installed already
 
