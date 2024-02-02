@@ -24,11 +24,9 @@ return {
 		require("mason").setup()
 		require("mason-lspconfig").setup({
 			ensure_installed = {
-				'tsserver',
 				'eslint',
 				'lua_ls',
 				'rust_analyzer',
-				'tailwindcss',
 				'jdtls',
 				'clangd',
 				'arduino_language_server'
@@ -40,8 +38,7 @@ return {
 				end,
 
 				['jdtls'] = function()
-					local lspconfig = require("lspconfig")
-					lspconfig.jdtls.setup {
+					require("lspconfig").jdtls.setup {
 						root_dir = function()
 							return vim.fs.dirname(vim.fs.find(
 								{ '.gradlew', '.gitignore', 'mvnw',
@@ -51,8 +48,7 @@ return {
 					}
 				end,
 				["lua_ls"] = function()
-					local lspconfig = require("lspconfig")
-					lspconfig.lua_ls.setup {
+					require("lspconfig").lua_ls.setup {
 						settings = {
 							Lua = {
 								runtime = {
@@ -88,7 +84,6 @@ return {
 				end,
 			},
 			mapping = cmp.mapping.preset.insert({
-				['<Esc>'] = cmp.mapping.abort(),
 				['<Tab>'] = cmp.mapping.confirm({ select = true }),
 			}),
 			sources = cmp.config.sources({
