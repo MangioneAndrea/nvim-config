@@ -17,11 +17,15 @@ return {
 		'hrsh7th/cmp-cmdline',
 		'hrsh7th/nvim-cmp',
 		'hrsh7th/cmp-vsnip',
-		'hrsh7th/vim-vsnip',
-		'j-hui/fidget.nvim'
+		'j-hui/fidget.nvim',
+		'L3MON4D3/LuaSnip',
+		'saadparwaiz1/cmp_luasnip'
 	},
 	config = function()
+		require('fidget').setup({});
 		require("mason").setup()
+		local capabilities = require('cmp_nvim_lsp').default_capabilities()
+
 		require("mason-lspconfig").setup({
 			ensure_installed = {
 				'eslint',
@@ -34,7 +38,7 @@ return {
 
 			handlers = {
 				function(server_name)
-					require("lspconfig")[server_name].setup {}
+					require("lspconfig")[server_name].setup {capabilities = capabilities}
 				end,
 
 				['jdtls'] = function()
@@ -78,9 +82,9 @@ return {
 		local cmp = require('cmp')
 		cmp.setup({
 			snippet = {
-				-- REQUIRED - you must specify a snippet engine
 				expand = function(args)
-					vim.fn["vsnip#anonymous"](args.body) -- For `vsnip` users.
+					print("is it woring")
+					require('luasnip').lsp_expand(args.body)
 				end,
 			},
 			mapping = cmp.mapping.preset.insert({
@@ -88,12 +92,10 @@ return {
 			}),
 			sources = cmp.config.sources({
 				{ name = 'nvim_lsp' },
-				{ name = 'vsnip' },
+				{ name = 'luasnip' },
 			}, {
 				{ name = 'buffer' },
 			})
 		})
-
-		require('fidget').setup({});
 	end
 }
