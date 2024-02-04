@@ -42,8 +42,15 @@ vim.keymap.set("n", "<leader>f", function()
 	else
 		vim.lsp.buf.format({ timeout_ms = 200 })
 	end
-end
- )
+end)
+
+vim.keymap.set("v", "<leader>f", function()
+	local range = { start = vim.fn.getpos("'<"), ["end"] = vim.fn.getpos("'>") }
+	vim.lsp.buf.format({ timeout_ms = 200, range })
+end)
+
+-- references
+vim.keymap.set('n', "<leader>n", ":lua vim.lsp.buf.references()<CR>")
 
 -- show help (signature)
 vim.keymap.set('n', '<leader>h', "<C-wk>")
