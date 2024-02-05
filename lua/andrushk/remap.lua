@@ -52,8 +52,12 @@ end)
 -- references
 vim.keymap.set('n', "<leader>n", ":lua vim.lsp.buf.references()<CR>")
 
--- show help (signature)
-vim.keymap.set('n', '<leader>h', "<C-wk>")
+vim.keymap.set('n', "<leader>h", vim.lsp.buf.hover)
+
+-- quicklist up
+vim.keymap.set('n', "<C-w><C-k>", "<C-w><C-w>k<CR>")
+-- quicklist down
+vim.keymap.set('n', "<C-w><C-j>", "<C-w><C-w>j<CR>")
 
 -- debugger
 vim.keymap.set("n", "<leader>dbg", ":lua require'dap'.continue()<CR>")
